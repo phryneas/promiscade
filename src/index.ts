@@ -1,8 +1,18 @@
+/**
+ * The resolved value of a promise cascade, can cascade further
+ */
 export type Cade<T> =
   | (ReadableStreamReadValueResult<T> & { next: Promiscade<T> })
   | ReadableStreamReadDoneResult<undefined>;
+
+/**
+ * A cascading promise structure for stream processing
+ */
 export type Promiscade<T> = Promise<Cade<T>>;
 
+/**
+ * Converts a ReadableStream into a Promiscade structure
+ */
 export function streamToPromiscade<T>(
   stream: ReadableStream<T>,
 ): Promiscade<T> {
@@ -23,6 +33,9 @@ export function streamToPromiscade<T>(
   })();
 }
 
+/**
+ * Converts a Promiscade into a ReadableStream
+ */
 export function promiscadeToReadableStream<T>(
   promiscade: Promiscade<T>,
 ): ReadableStream<T> {
