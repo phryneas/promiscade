@@ -1,6 +1,6 @@
 {
   "name": "promiscade",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "turning ReadableStreams into cascades of Promises and vice versa",
   "type": "module",
   "main": "./dist/index.js",
