@@ -1,7 +1,7 @@
-type Cade<T> =
+export type Cade<T> =
   | (ReadableStreamReadValueResult<T> & { next: Promiscade<T> })
   | ReadableStreamReadDoneResult<undefined>;
-type Promiscade<T> = Promise<Cade<T>>;
+export type Promiscade<T> = Promise<Cade<T>>;
 
 export function streamToPromiscade<T>(
   stream: ReadableStream<T>
