@@ -4,7 +4,7 @@ export type Cade<T> =
 export type Promiscade<T> = Promise<Cade<T>>;
 
 export function streamToPromiscade<T>(
-  stream: ReadableStream<T>
+  stream: ReadableStream<T>,
 ): Promiscade<T> {
   const reader = stream.getReader();
   return (function cade(): Promiscade<T> {
@@ -16,15 +16,15 @@ export function streamToPromiscade<T>(
             : {
                 ...value,
                 next: cade(),
-              }
+              },
         );
-      }, reject)
+      }, reject),
     );
   })();
 }
 
 export function promiscadeToReadableStream<T>(
-  promiscade: Promiscade<T>
+  promiscade: Promiscade<T>,
 ): ReadableStream<T> {
   return new ReadableStream<T>({
     start(controller) {

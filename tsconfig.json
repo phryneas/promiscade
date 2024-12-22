@@ -6,7 +6,7 @@
     "module": "Node16",
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": true
   },
   "include": ["src"],
   "exclude": ["*/**.test.ts"]

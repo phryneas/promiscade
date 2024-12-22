@@ -1,6 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert";
-import { type Cade, promiscadeToReadableStream, streamToPromiscade } from "./index.ts";
+import {
+  type Cade,
+  promiscadeToReadableStream,
+  streamToPromiscade,
+} from "./index.ts";
 
 test("ReadableStream -> Promiscade", async () => {
   const stream = new ReadableStream<string>({
@@ -53,26 +57,26 @@ test("Promiscade -> ReadableStream", async () => {
       }),
     }),
   });
-  const stream = promiscadeToReadableStream(cade)
-  const reader = stream.getReader()
+  const stream = promiscadeToReadableStream(cade);
+  const reader = stream.getReader();
   {
-    const value = await reader.read()
-    assert.ok(value.done == false)
-    assert.equal(value.value, "a")
+    const value = await reader.read();
+    assert.ok(value.done == false);
+    assert.equal(value.value, "a");
   }
   {
-    const value = await reader.read()
-    assert.ok(value.done == false)
-    assert.equal(value.value, "b")
+    const value = await reader.read();
+    assert.ok(value.done == false);
+    assert.equal(value.value, "b");
   }
   {
-    const value = await reader.read()
-    assert.ok(value.done == false)
-    assert.equal(value.value, "c")
+    const value = await reader.read();
+    assert.ok(value.done == false);
+    assert.equal(value.value, "c");
   }
   {
-    const value = await reader.read()
-    assert.ok(value.done == true)
-    assert.equal(value.value, undefined)
+    const value = await reader.read();
+    assert.ok(value.done == true);
+    assert.equal(value.value, undefined);
   }
 });
