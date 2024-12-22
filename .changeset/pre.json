@@ -4,5 +4,7 @@
   "initialVersions": {
     "promiscade": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "sharp-glasses-doubt"
+  ]
 }
