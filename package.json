@@ -2,8 +2,19 @@
   "name": "promiscade",
   "version": "0.0.1",
   "description": "turning ReadableStreams into cascades of Promises and back",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module-sync": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
   "repository": "https://github.com/phryneas/promiscade",
   "author": "Lenz Weber-Tronic <mail@lenzw.de>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "typescript": "^5.7.2"
+  }
 }

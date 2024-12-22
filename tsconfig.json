@@ -1,0 +1,10 @@
+{
+  "extends": ["@tsconfig/node22/tsconfig.json"],
+  "compilerOptions": {
+    "lib": ["es2023", "DOM"],
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}
