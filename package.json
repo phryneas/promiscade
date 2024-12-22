@@ -34,7 +34,7 @@
   "scripts": {
     "build": "yarn tsc",
     "clean": "yarn tsc --build --clean",
-    "prepublishOnly": "yarn test",
+    "prepublishOnly": "yarn build && yarn test",
     "prepack": "yarn clean && yarn build",
     "watch": "cd src; node --experimental-strip-types --test --watch",
     "test": "npm-run-all 'test:*'",
