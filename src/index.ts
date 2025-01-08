@@ -14,7 +14,7 @@ export type Promiscade<T> = Promise<Cade<T>>;
  * Converts a ReadableStream into a Promiscade structure
  */
 export function streamToPromiscade<T>(
-  stream: ReadableStream<T>,
+  stream: ReadableStream<T>
 ): Promiscade<T> {
   const reader = stream.getReader();
   return (function cade(): Promiscade<T> {
@@ -26,9 +26,9 @@ export function streamToPromiscade<T>(
             : {
                 ...value,
                 next: cade(),
-              },
+              }
         );
-      }, reject),
+      }, reject)
     );
   })();
 }
@@ -37,17 +37,21 @@ export function streamToPromiscade<T>(
  * Converts a Promiscade into a ReadableStream
  */
 export function promiscadeToReadableStream<T>(
-  promiscade: Promiscade<T>,
+  promiscade: Promiscade<T>
 ): ReadableStream<T> {
   return new ReadableStream<T>({
     start(controller) {
       const onError = controller.error.bind(controller);
       promiscade.then(function handle(cade) {
-        if (cade.done) {
-          controller.close();
-        } else {
-          controller.enqueue(cade.value);
-          cade.next.then(handle, onError);
+        try {
+          if (cade.done) {
+            controller.close();
+          } else {
+            controller.enqueue(cade.value);
+            cade.next.then(handle, onError);
+          }
+        } catch {
+          // the controller might already be closed by the consumer, don't error in that case
         }
       }, onError);
     },
