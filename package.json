@@ -41,5 +41,6 @@
     "test:src": "cd src; node --experimental-strip-types --test",
     "test:publint": "publint",
     "test:attw": "attw --pack --ignore-rules cjs-resolves-to-esm"
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }
