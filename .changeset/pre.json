@@ -1,0 +1,8 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "promiscade": "0.0.1"
+  },
+  "changesets": []
+}
