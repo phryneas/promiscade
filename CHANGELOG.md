@@ -1,5 +1,11 @@
 # promiscade
 
+## 0.0.2-alpha.0
+
+### Patch Changes
+
+- 44aebd8: Add CJS build
+
 ## 0.0.1
 
 ### Patch Changes
