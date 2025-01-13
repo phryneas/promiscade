@@ -40,7 +40,7 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "build": "yarn tsup",
+    "build": "tsup",
     "prepublishOnly": "yarn build && yarn test",
     "prepack": "yarn build",
     "watch": "cd src; node --experimental-strip-types --test --watch",
