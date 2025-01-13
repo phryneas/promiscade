@@ -4,5 +4,7 @@
   "initialVersions": {
     "promiscade": "0.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "dull-onions-behave"
+  ]
 }
